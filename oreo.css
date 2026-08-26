@@ -4835,12 +4835,16 @@ width: 15%;
     position: relative;
 
     width: 100%;
+    min-height: 850px;
 
     overflow: hidden;
 
     background: #0047D9;
 
     font-family: Arial, sans-serif;
+
+    padding: 135px 30px 70px;
+
     z-index: 1;
 }
 
@@ -4850,16 +4854,11 @@ width: 15%;
 ========================================================= */
 
 .page4 h1 {
-    position: absolute;
-
-    top: 135px;
-    left: 50%;
-
     margin: 0;
 
-    transform: translateX(-50%);
-
     color: white;
+
+    text-align: center;
 
     font-size: 68px;
     line-height: 1;
@@ -4870,6 +4869,8 @@ width: 15%;
 
     white-space: nowrap;
 
+    position: relative;
+
     z-index: 20;
 }
 
@@ -4879,13 +4880,9 @@ width: 15%;
 ========================================================= */
 
 .p4-products {
-    position: absolute;
-
-    top: 260px;
-    left: 50%;
-
     width: 100%;
-    transform: translateX(-50%);
+
+    margin-top: 55px;
 
     display: flex;
     align-items: flex-start;
@@ -4893,20 +4890,22 @@ width: 15%;
 
     gap: 45px;
 
+    position: relative;
+
     z-index: 5;
 }
 
 
 /* =========================================================
-   ALL THREE CARDS - SAME SIZE
+   PRODUCT CARD
 ========================================================= */
 
-.p4-product {
+.p4-product,
+.p4-product.milk-fudge {
     position: relative;
 
     width: 400px;
-	height: 540px;
-
+    height: 540px;
 
     padding-top: 30px;
 
@@ -4927,34 +4926,18 @@ width: 15%;
 
 
 /* =========================================================
-   CENTER CARD - SAME SIZE
-========================================================= */
-
-.p4-product.milk-fudge {
-    width: 400px;
-    height:540px;
-    margin-top: 0;
-
-    background: transparent;
-}
-
-
-/* =========================================================
-   IMAGE BOX
-   ALL 3 EXACT SAME SIZE
+   IMAGE
 ========================================================= */
 
 .p4-product img {
-    position: relative;
-
     width: 300px;
     height: 300px;
-
-    margin: 0;
 
     object-fit: contain;
 
     display: block;
+
+    position: relative;
 
     transition:
         transform .5s cubic-bezier(.22, 1, .36, 1);
@@ -4964,16 +4947,7 @@ width: 15%;
 
 
 /* =========================================================
-   HOVER IMAGE
-========================================================= */
-
-.p4-product:hover img {
-    transform: translateY(-20px);
-}
-
-
-/* =========================================================
-   ORIGINAL GRADIENT HIGHLIGHT
+   CARD HOVER
 ========================================================= */
 
 .p4-product:hover {
@@ -4987,7 +4961,12 @@ width: 15%;
             #F45A2A 100%
         );
 
-    transform: translateY(-5px);
+    transform: translateY(-10px);
+}
+
+
+.p4-product:hover img {
+    transform: translateY(-20px) scale(1.05);
 }
 
 
@@ -5000,8 +4979,6 @@ width: 15%;
 
     width: 285px;
     height: 58px;
-
-    padding: 0;
 
     margin-top: 75px;
 
@@ -5019,18 +4996,13 @@ width: 15%;
     cursor: pointer;
 
     z-index: 10;
-}
 
-
-/* CENTER BUTTON POSITION */
-
-.milk-fudge .p4-button {
-    margin-top: 75px;
+    transition: background .4s ease;
 }
 
 
 /* =========================================================
-   BOTH H2
+   BUTTON TEXT
 ========================================================= */
 
 .p4-button h2 {
@@ -5038,16 +5010,11 @@ width: 15%;
 
     inset: 0;
 
-    width: 100%;
-    height: 100%;
-
     margin: 0;
 
     display: flex;
     align-items: center;
     justify-content: center;
-
-    border-radius: 40px;
 
     font-size: 17px;
     font-weight: 900;
@@ -5059,14 +5026,8 @@ width: 15%;
 }
 
 
-/* =========================================================
-   NORMAL TEXT
-========================================================= */
-
 .p4-button h2:first-child {
     color: white;
-
-    background: transparent;
 
     transform: translateY(0);
 
@@ -5074,14 +5035,8 @@ width: 15%;
 }
 
 
-/* =========================================================
-   HOVER TEXT
-========================================================= */
-
 .p4-button h2:last-child {
     color: white;
-
-    background: transparent;
 
     transform: translateY(100%);
 
@@ -5097,24 +5052,31 @@ width: 15%;
     transform: translateY(-100%);
 }
 
+
 .p4-button:hover h2:last-child {
     transform: translateY(0);
 }
 
 
 /* =========================================================
-   MEDIA QUERY
+   TABLET
 ========================================================= */
 
 @media (max-width: 1200px) {
 
+    .page4 {
+        min-height: 760px;
+
+        padding: 100px 20px 60px;
+    }
+
     .page4 h1 {
-        top: 100px;
         font-size: 58px;
     }
 
     .p4-products {
-        top: 220px;
+        margin-top: 50px;
+
         gap: 20px;
     }
 
@@ -5132,10 +5094,7 @@ width: 15%;
     .p4-button {
         width: 240px;
         height: 55px;
-        margin-top: 55px;
-    }
 
-    .milk-fudge .p4-button {
         margin-top: 55px;
     }
 }
@@ -5148,38 +5107,17 @@ width: 15%;
 @media (max-width: 768px) {
 
     .page4 {
-        height: auto;
-        min-height: 100vh;
-        overflow-y: auto;
+        min-height: auto;
+
+        padding: 60px 20px;
     }
 
     .page4 h1 {
-        position: relative;
-
-        top: auto;
-        left: auto;
-
-        padding-top: 60px;
-
-        transform: none;
-
-        text-align: center;
-
         font-size: 45px;
     }
 
     .p4-products {
-        position: relative;
-
-        top: auto;
-        left: auto;
-
-        width: auto;
-
         margin-top: 50px;
-        padding-bottom: 60px;
-
-        transform: none;
 
         flex-direction: column;
         align-items: center;
@@ -5204,10 +5142,6 @@ width: 15%;
 
         margin-top: 50px;
     }
-
-    .milk-fudge .p4-button {
-        margin-top: 50px;
-    }
 }
 
 
@@ -5217,9 +5151,14 @@ width: 15%;
 
 @media (max-width: 480px) {
 
+    .page4 {
+        padding: 45px 15px 50px;
+    }
+
     .page4 h1 {
-        padding-top: 45px;
         font-size: 35px;
+
+        white-space: normal;
     }
 
     .p4-products {
@@ -5228,7 +5167,7 @@ width: 15%;
 
     .p4-product,
     .p4-product.milk-fudge {
-        width: 300px;
+        width: min(300px, 100%);
         height: 420px;
 
         border-radius: 25px;
@@ -5246,16 +5185,10 @@ width: 15%;
         margin-top: 45px;
     }
 
-    .milk-fudge .p4-button {
-        margin-top: 45px;
-    }
-
     .p4-button h2 {
         font-size: 14px;
     }
 }
-
-
 /* =========================
    PAGE 5
 ========================= */
